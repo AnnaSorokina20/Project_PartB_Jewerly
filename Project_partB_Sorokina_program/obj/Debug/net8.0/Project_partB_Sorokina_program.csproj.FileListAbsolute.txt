@@ -12,3 +12,4 @@ D:\ХАИ\2 курс\ООП\Part B\Project_partB_Sorokina_program\Project_partB_
 D:\ХАИ\2 курс\ООП\Part B\Project_partB_Sorokina_program\Project_partB_Sorokina_program\obj\Debug\net8.0\Project_partB_Sorokina_program.pdb
 D:\ХАИ\2 курс\ООП\Part B\Project_partB_Sorokina_program\Project_partB_Sorokina_program\obj\Debug\net8.0\Project_partB_Sorokina_program.genruntimeconfig.cache
 D:\ХАИ\2 курс\ООП\Part B\Project_partB_Sorokina_program\Project_partB_Sorokina_program\obj\Debug\net8.0\ref\Project_partB_Sorokina_program.dll
+D:\ХАИ\2 курс\ООП\Part B\Project_partB_Sorokina_program\Project_partB_Sorokina_program\obj\Debug\net8.0\Project_partB_Sorokina_program.sourcelink.json

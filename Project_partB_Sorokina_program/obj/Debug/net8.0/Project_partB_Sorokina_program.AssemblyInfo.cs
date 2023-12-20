@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Project_partB_Sorokina_program")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f71bcaa0100526963214d2ff7ebea6a83a46fc5d")]
 [assembly: System.Reflection.AssemblyProductAttribute("Project_partB_Sorokina_program")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Project_partB_Sorokina_program")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

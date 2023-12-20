@@ -14,8 +14,8 @@ namespace Project_partB_Sorokina_program
     {
         public int Hardness { get; private set; } // Твердість за шкалою Мооса
 
-        public SemiPreciousStone(string name, double caratWeight, decimal price, string color, int hardness)
-            : base(name, caratWeight, price, color)
+        public SemiPreciousStone(SemiPreciousGemstoneName name, double caratWeight, decimal price, string color, int hardness)
+       : base(name.ToString(), caratWeight, price, color)
         {
             Hardness = hardness;
         }

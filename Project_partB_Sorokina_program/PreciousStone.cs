@@ -14,8 +14,8 @@ namespace Project_partB_Sorokina_program
     {
         public int Clarity { get; private set; } // Чистота каменю
 
-        public PreciousStone(string name, double caratWeight, decimal price, string color, int clarity)
-            : base(name, caratWeight, price, color)
+        public PreciousStone(PreciousGemstoneName name, double caratWeight, decimal price, string color, int clarity)
+        : base(name.ToString(), caratWeight, price, color) // Конвертація enum в рядок
         {
             Clarity = clarity;
         }

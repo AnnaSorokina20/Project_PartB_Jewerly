@@ -21,40 +21,109 @@ class Program
 
             int choice = Convert.ToInt32(Console.ReadLine());
 
+
             switch (choice)
             {
                 case 1:
-                    Console.Write("Enter gemstone type (1 for Precious, 2 for SemiPrecious): ");
-                    int stoneType = Convert.ToInt32(Console.ReadLine());
 
-                    Console.Write("Enter gemstone name: ");
-                    string name = Console.ReadLine();
+                    //Console.Write("Enter gemstone type (1 for Precious, 2 for SemiPrecious): ");
+                    //int stoneType = Convert.ToInt32(Console.ReadLine());
 
-                    Console.Write("Enter gemstone weight (in carats): ");
-                    double weight = Convert.ToDouble(Console.ReadLine());
+                    int stoneType;
+                    bool isValidType;
+                    do
+                    {
+                        Console.Write("Enter gemstone type (1 for Precious, 2 for SemiPrecious): ");
+                        isValidType = int.TryParse(Console.ReadLine(), out stoneType) && (stoneType == 1 || stoneType == 2);
+                        if (!isValidType)
+                        {
+                            Console.WriteLine("Invalid type, please enter 1 for Precious or 2 for SemiPrecious.");
+                        }
+                    } while (!isValidType);
 
-                    Console.Write("Enter gemstone price: ");
-                    decimal price = Convert.ToDecimal(Console.ReadLine());
+                    //Console.Write("Enter gemstone weight (in carats): ");
+                    //double weight = Convert.ToDouble(Console.ReadLine());
 
-                    Console.Write("Enter gemstone color: ");
-                    string color = Console.ReadLine();
+                    double weight;
+                    bool isValidWeight;
+                    do
+                    {
+                        Console.Write("Enter gemstone weight (in carats): ");
+                        isValidWeight = double.TryParse(Console.ReadLine(), out weight) && weight > 0;
+                        if (!isValidWeight)
+                        {
+                            Console.WriteLine("Invalid weight, please enter a positive number.");
+                        }
+                    } while (!isValidWeight);
+
+                    //Console.Write("Enter gemstone price: ");
+                    //decimal price = Convert.ToDecimal(Console.ReadLine());
+
+                    decimal price;
+                    bool isValidPrice;
+                    do
+                    {
+                        Console.Write("Enter gemstone price: ");
+                        isValidPrice = decimal.TryParse(Console.ReadLine(), out price) && price > 0;
+
+                        if (!isValidPrice)
+                        {
+                            Console.WriteLine("Invalid price, please enter a positive number.");
+                        }
+                    } while (!isValidPrice);
+
+
+                    //Console.Write("Enter gemstone color: ");
+                    //string color = Console.ReadLine();
+                    string color;
+                    bool isValidColor;
+                    do
+                    {
+                        Console.Write("Enter gemstone color: ");
+                        color = Console.ReadLine();
+                        isValidColor = !string.IsNullOrWhiteSpace(color) && color.All(char.IsLetter);
+
+                        if (!isValidColor)
+                        {
+                            Console.WriteLine("Invalid color, please enter a valid color name (without numbers).");
+                        }
+                    } while (!isValidColor);
 
                     if (stoneType == 1)
                     {
+                        Console.WriteLine("Select the type of precious gemstone:");
+                        foreach (var name in Enum.GetNames(typeof(PreciousGemstoneName)))
+                        {
+                            Console.WriteLine(name);
+                        }
+                        PreciousGemstoneName gemstoneName = (PreciousGemstoneName)Enum.Parse(typeof(PreciousGemstoneName), Console.ReadLine());
+
                         Console.Write("Enter gemstone clarity (1-10): ");
                         int clarity = Convert.ToInt32(Console.ReadLine());
-                        AddGemstone(necklace, stoneType, name, weight, price, color, clarity);
+
+                        PreciousStone preciousStone = new PreciousStone(gemstoneName, weight, price, color, clarity);
+                        necklace.AddStone(preciousStone);
                     }
                     else if (stoneType == 2)
                     {
+                        Console.WriteLine("Select the type of semiprecious gemstone:");
+                        foreach (var name in Enum.GetNames(typeof(SemiPreciousGemstoneName)))
+                        {
+                            Console.WriteLine(name);
+                        }
+                        SemiPreciousGemstoneName gemstoneName = (SemiPreciousGemstoneName)Enum.Parse(typeof(SemiPreciousGemstoneName), Console.ReadLine());
+
                         Console.Write("Enter gemstone hardness (1-10): ");
                         int hardness = Convert.ToInt32(Console.ReadLine());
-                        AddGemstone(necklace, stoneType, name, weight, price, color, hardness);
+
+                        SemiPreciousStone semiPreciousStone = new SemiPreciousStone(gemstoneName, weight, price, color, hardness);
+                        necklace.AddStone(semiPreciousStone);
                     }
                     else
                     {
                         Console.WriteLine("Invalid gemstone type.");
                     }
+   
                     break;
                 case 2:
                     Console.Write("Enter the name of the gemstone to remove: ");
@@ -110,12 +179,12 @@ class Program
     {
         if (stoneType == 1)
         {
-            PreciousStone preciousStone = new PreciousStone(name, weight, price, color, additionalProperty);
+            PreciousStone preciousStone = new PreciousStone((PreciousGemstoneName)Enum.Parse(typeof(PreciousGemstoneName),name), weight, price, color, additionalProperty);
             necklace.AddStone(preciousStone);
         }
         else if (stoneType == 2)
         {
-            SemiPreciousStone semiPreciousStone = new SemiPreciousStone(name, weight, price, color, additionalProperty);
+            SemiPreciousStone semiPreciousStone = new SemiPreciousStone((SemiPreciousGemstoneName)Enum.Parse(typeof(SemiPreciousGemstoneName), name), weight, price, color, additionalProperty);
             necklace.AddStone(semiPreciousStone);
         }
     }
