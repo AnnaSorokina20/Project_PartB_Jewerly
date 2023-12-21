@@ -42,4 +42,5 @@
 
 ## Діаграма класів предметної області
 
-![image](https://github.com/AnnaSorokina20/Project_PartA_Jewerly/assets/149331565/54329f21-6caf-42dd-b5fa-3d92304b250a)
+![image](https://github.com/AnnaSorokina20/Project_PartB_Jewerly/assets/149331565/4ea70de6-b645-4d8d-8433-41faa96489a8)
+
